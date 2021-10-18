@@ -1,0 +1,284 @@
+type: edu
+files:
+- name: src/VectorTask.scala
+  visible: true
+  placeholders:
+  - offset: 34
+    length: 13
+    placeholder_text: /* GENERIC */
+    initial_state:
+      length: 13
+      offset: 34
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: '[T <: Vector[T]]'
+  - offset: 528
+    length: 6
+    placeholder_text: Vector
+    initial_state:
+      length: 6
+      offset: 528
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: T
+  - offset: 657
+    length: 13
+    placeholder_text: /* GENERIC */
+    initial_state:
+      length: 13
+      offset: 657
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: '[T <: Vector[T]]'
+  - offset: 680
+    length: 6
+    placeholder_text: Vector
+    initial_state:
+      length: 6
+      offset: 680
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: T
+  - offset: 697
+    length: 6
+    placeholder_text: Vector
+    initial_state:
+      length: 6
+      offset: 697
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: T
+  - offset: 706
+    length: 6
+    placeholder_text: Vector
+    initial_state:
+      length: 6
+      offset: 706
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: T
+  - offset: 715
+    length: 3
+    placeholder_text: ???
+    initial_state:
+      length: 3
+      offset: 715
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: "{\n\t\trecursiveHelper((a, b) => a + b, vector1, vector2,\
+      \ vector2, vector1.size() - 1)\n\t}"
+  - offset: 728
+    length: 13
+    placeholder_text: /* GENERIC */
+    initial_state:
+      length: 13
+      offset: 728
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: '[T <: Vector[T]]'
+  - offset: 751
+    length: 6
+    placeholder_text: Vector
+    initial_state:
+      length: 6
+      offset: 751
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: T
+  - offset: 768
+    length: 6
+    placeholder_text: Vector
+    initial_state:
+      length: 6
+      offset: 768
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: T
+  - offset: 777
+    length: 6
+    placeholder_text: Vector
+    initial_state:
+      length: 6
+      offset: 777
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: T
+  - offset: 786
+    length: 3
+    placeholder_text: ???
+    initial_state:
+      length: 3
+      offset: 786
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: "{\n\t\trecursiveHelper((a, b) => a - b, vector1, vector2,\
+      \ vector2, vector1.size() - 1)\n\t}"
+  - offset: 792
+    length: 0
+    placeholder_text: ""
+    initial_state:
+      length: 0
+      offset: 792
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: "@scala.annotation.tailrec def recursiveHelper[T <:\
+      \ Vector[T]](op: (Float, Float) => Float,\n\t                              \
+      \                                vector1: T,\n\t                           \
+      \                                   vector2: T,\n\t                        \
+      \                                      state: T,\n\t                       \
+      \                                       n: Int): T = {\n\t\tif (n < 0) state\
+      \ else recursiveHelper(op,\n\t\t                                      vector1,\n\
+      \t\t                                      vector2,\n\t\t                   \
+      \                   state.modify(n, op(vector1(n), vector2(n))),\n\t\t     \
+      \                                 n - 1)\n\t}"
+  text: "object VectorTask {\n\n\ttrait Vector/* GENERIC */ {\n\n\t\t/**\n\t\t * Get\
+    \ value of the vector at specific position\n\t\t *\n\t\t * @param position of\
+    \ vector value. Must be less than `size`\n\t\t * @return value at the given position\
+    \ */\n\t\tdef apply(position: Int): Float\n\n\t\t/**\n\t\t * Create a new Vector\
+    \ instance with the given value and previous values\n\t\t *\n\t\t * @param position\
+    \ of vector value. Must be less than `size`\n\t\t * @param value    the value\
+    \ to set\n\t\t * @return new instance of this vector */\n\t\tdef modify(position:\
+    \ Int, value: Float): Vector\n\n\t\t/**\n\t\t * Provides the size of this vector\n\
+    \t\t *\n\t\t * @return actual size of the vector */\n\t\tdef size(): Int\n\t}\n\
+    \n\tdef sum/* GENERIC */(vector1: Vector, vector2: Vector): Vector = ???\n\n\t\
+    def sub/* GENERIC */(vector1: Vector, vector2: Vector): Vector = ???\n\n\t\n\n\
+    }"
+  learner_created: false
+- name: test/TestSpecVector.scala
+  visible: false
+  text: |
+    import org.scalatest.funsuite.AnyFunSuite
+
+    import scala.tools.nsc.Settings
+    import scala.tools.nsc.interpreter.{IMain, IR}
+
+
+    case class Vector2(x: Float, y: Float) extends VectorTask.Vector[Vector2] {
+
+      override def apply(position: Int): Float = position match {
+        case 0 => x
+        case 1 => y
+        case _ => throw new IndexOutOfBoundsException
+      }
+
+      override def modify(position: Int, value: Float): Vector2 = position match {
+        case 0 => Vector2(value, y)
+        case 1 => Vector2(x, value)
+        case _ => throw new IndexOutOfBoundsException
+      }
+
+      override def size(): Int = 2
+    }
+
+    case class Vector3(x: Float, y: Float, z: Float) extends VectorTask.Vector[Vector3] {
+
+      override def apply(position: Int): Float = position match {
+        case 0 => x
+        case 1 => y
+        case 2 => z
+        case _ => throw new IndexOutOfBoundsException
+      }
+
+      override def modify(position: Int, value: Float): Vector3 = position match {
+        case 0 => Vector3(value, y, z)
+        case 1 => Vector3(x, value, z)
+        case 2 => Vector3(x, y, value)
+        case _ => throw new IndexOutOfBoundsException
+      }
+
+      override def size(): Int = 3
+    }
+
+    class TestSpecVector extends AnyFunSuite {
+
+      val settings = new Settings
+      settings.usejavacp.value = true
+      settings.deprecation.value = true
+
+      test("Expected sum of vectors to compile and pass") {
+        val code =
+          s"""
+             |val x = Vector2(1, 2)
+             |val y = Vector2(2, 1)
+             |VectorTask.sum(x, y)
+             |""".stripMargin
+
+        val eval = new IMain(settings)
+        val evaluated = eval.interpret(code)
+
+        assert(evaluated == IR.Success, s"Expected to be successfully compiled and evaluated but was $evaluated")
+
+        val res = eval.valueOfTerm("res0").get.asInstanceOf[VectorTask.Vector[_]]
+        assert(res == Vector2(3, 3), s"Expected that sum of vectors (1, 2) and (2, 1) is (3, 3) but was $res")
+      }
+
+      test("Expected subtract of vectors to compile and pass") {
+        val code =
+          s"""
+             |val x = Vector2(1, 2)
+             |val y = Vector2(2, 1)
+             |VectorTask.sub(x, y)
+             |""".stripMargin
+
+        val eval = new IMain(settings)
+        val evaluated = eval.interpret(code)
+
+        assert(evaluated == IR.Success, s"Expected to be successfully compiled and evaluated but was $evaluated")
+
+        val res = eval.valueOfTerm("res0").get.asInstanceOf[VectorTask.Vector[_]]
+        assert(res == Vector2(-1, 1), s"Expected that subtract of vectors (1, 2) and (2, 1) is (-1, 1) but was $res")
+      }
+
+      test("Expected sum of vectors of different size to fail at the compilation time") {
+        val code =
+          s"""
+             |val x = Vector2(1, 2)
+             |val y = Vector3(2, 1, 0)
+             |VectorTask.sum(x, y)
+             |""".stripMargin
+
+        val eval = new IMain(settings)
+        val evaluated = eval.interpret(code)
+
+        assert(evaluated == IR.Error, s"Expected to fail on compiling type-safe sum of vectors")
+      }
+
+      test("Expected subtract of vectors of different size to fail at the compilation time") {
+        val code =
+          s"""
+             |val x = Vector2(1, 2)
+             |val y = Vector3(2, 1, 0)
+             |VectorTask.sub(x, y)
+             |""".stripMargin
+
+        val eval = new IMain(settings)
+        val evaluated = eval.interpret(code)
+
+        assert(evaluated == IR.Error, s"Expected to fail on compiling type-safe sum of vectors")
+      }
+    }
+  learner_created: false
+- name: build.sbt
+  visible: false
+  text: |
+    scalaVersion := "2.12.12"
+    scalaSource in Compile := baseDirectory.value / "src"
+    scalaSource in Test := baseDirectory.value / "test"
+    libraryDependencies += "org.scalatest" %% "scalatest" % "3.2.3"
+    libraryDependencies += "com.twitter" %% "util-eval" % "6.43.0"
+  learner_created: false
+status: Unchecked
+record: -1

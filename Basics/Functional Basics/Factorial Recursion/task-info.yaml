@@ -1,0 +1,60 @@
+type: edu
+files:
+- name: src/FactorialTask.scala
+  visible: true
+  placeholders:
+  - offset: 90
+    length: 211
+    placeholder_text: ???
+    initial_state:
+      length: 3
+      offset: 67
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: |-
+      @scala.annotation.tailrec def factorialHelper(state: Long, n: Int): Long = {
+            if (n == 0) state
+            else factorialHelper(state * n, n - 1)
+          }
+
+
+          n => factorialHelper(1, n)
+  text: |-
+    object FactorialTask {
+
+      def factorialImpl(): Int => Long = {
+        ???
+      }
+    }
+  learner_created: false
+- name: test/TestSpecForFactorial.scala
+  visible: false
+  text: "import FactorialTask.factorialImpl\nimport org.scalatest.funsuite.AnyFunSuite\n\
+    \nimport scala.util.Random\n\nclass TestSpecForFactorial extends AnyFunSuite {\n\
+    \n\ttest(\"Checks that Factorial(0) is 1\") {\n\t\tval factorial = factorialImpl()\n\
+    \t\tval res = factorial(0)\n\t\tassert(res == 1, s\"Expected factorial(0) is 1\
+    \ but was $res\")\n\t}\n\n\ttest(\"Checks that Factorial(1) is 1\") {\n\t\tval\
+    \ factorial = factorialImpl()\n\t\tval res = factorial(1)\n\t\tassert(res == 1,\
+    \ s\"Expected factorial(1) is 1 but was $res\")\n\t}\n\n\ttest(\"Checks that Factorial(5)\
+    \ is 120\") {\n\t\tval factorial = factorialImpl()\n\t\tval res = factorial(5)\n\
+    \t\tassert(res == 120, s\"Expected factorial(5) is 120 but was $res\")\n\t}\n\n\
+    \ttest(\"Checks that rnd is Factorial(rnd) / Factorial(rnd - 1)\") {\n\t\tval\
+    \ factorial = factorialImpl()\n\t\tval rnd = Random.nextInt(25) + 1\n\t\tval resrnd\
+    \ = factorial(rnd)\n\t\tval resprevrnd = factorial(rnd - 1)\n\t\tval resf = resrnd\
+    \ / resprevrnd\n\n\t\tassert(rnd == resf,s\"Expected factorial($rnd) / factorial(${rnd\
+    \ - 1}) is $rnd\" +\n\t\t\ts\"but got $resrnd / $resprevrnd is $resf\")\n\t}\n\
+    }\n"
+  learner_created: false
+- name: build.sbt
+  visible: false
+  text: |
+    scalaSource in Compile := baseDirectory.value / "src"
+    scalaSource in Test := baseDirectory.value / "test"
+    libraryDependencies += "org.scalatest" %% "scalatest" % "3.2.3"
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Fri, 01 Oct 2021 08:45:42 UTC
+record: -1

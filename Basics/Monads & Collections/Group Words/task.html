@@ -1,0 +1,20 @@
+<html>
+<p>You are given with a sequence of words.</p>
+<ul>
+  <li>Group all the words by their first letter</li>
+  <li>Count how many times the group-key letter appears in the grouped words</li>
+  <li>Summarize the counts and combine them with character that represents a group</li>
+</ul>
+
+For instance:
+<p>
+  <code>Seq("ABCA", "BCD", "ABC") -></code> original input of 3 words
+  <br><br>
+  <code>Seq('A' -> Seq("ABCA", "ABC"), 'B' -> Seq("BCD")) -></code> - Letter 'A' is represented by two words "ABCA" and "ABC"; Letter 'B' is represented by a single word "BCD"
+  <br>
+  <br>
+  <code>Seq('A'-> 3, 'B' -> 1))</code> - Letter A appears 2 times in the word "ABCA" and once at "ABC", hence the total number of 'A' appears in the group is 3 time; For 'B' we have only a single word in the sequence which has only a single letter 'B'
+  <br>
+  <br>
+</p>
+</html>

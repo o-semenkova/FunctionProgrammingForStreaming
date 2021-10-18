@@ -1,0 +1,69 @@
+type: edu
+files:
+- name: src/PurityTask.scala
+  visible: true
+  placeholders:
+  - offset: 121
+    length: 514
+    placeholder_text: ???
+    initial_state:
+      length: 3
+      offset: 120
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: |-
+      {
+          checkDoesNotModifyContent(incrementFn) && checkDoesNotRelayOnTheSomethingThatChanges(incrementFn)
+        }
+
+        def checkDoesNotModifyContent(incrementFn: Integer => Integer): Boolean = {
+          val integer1 = Integer(1)
+
+          val integer2 = incrementFn(integer1)
+          val integer3 = incrementFn(integer1)
+
+          (integer1.value + 1) == integer2.value && (integer1.value + 1) == integer3.value
+        }
+
+        def checkDoesNotRelayOnTheSomethingThatChanges(incrementFn: Integer => Integer): Boolean = {
+          val integer1 = Integer(1)
+
+          val integer2 = incrementFn(integer1)
+          val integer3 = incrementFn(integer2)
+
+          (integer1.value + 1) == integer2.value && (integer2.value + 1) == integer3.value
+        }
+  text: |-
+    object PurityTask {
+
+      case class Integer(var value: Int) { }
+
+      def isPure(incrementFn: Integer => Integer): Boolean = ???
+    }
+  learner_created: false
+- name: test/TestSpecPurity.scala
+  visible: false
+  text: "import PurityTask.{Integer, isPure}\nimport org.scalatest.funsuite.AnyFunSuite\n\
+    \nclass TestSpecPurity extends AnyFunSuite {\n\n\ttest(\"Ensures state modifying\
+    \ function is detected\") {\n\t\tassert(!isPure(i => {\n\t\t\ti.value += 1\n\t\
+    \t\ti\n\t\t}), \"Expected given function is not pure\")\n\t}\n\n\ttest(\"Ensures\
+    \ changing state relying function is detected\") {\n\t\tvar cache: Integer = null;\n\
+    \t\tassert(!isPure(i => {\n\t\t\tval next = Integer(i.value + 1)\n\n\t\t\tif (cache\
+    \ == null) {\n\t\t\t\tcache = next\n\t\t\t}\n\n\t\t\tcache\n\t\t}), \"Expected\
+    \ given function is not pure\")\n\t}\n\n\ttest(\"Ensures pure function is detected\"\
+    ) {\n\t\tassert(isPure(i => Integer(i.value + 1)), \"Expected given function is\
+    \ not pure\")\n\t}\n}\n"
+  learner_created: false
+- name: build.sbt
+  visible: false
+  text: |
+    scalaSource in Compile := baseDirectory.value / "src"
+    scalaSource in Test := baseDirectory.value / "test"
+    libraryDependencies += "org.scalatest" %% "scalatest" % "3.2.3"
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Thu, 30 Sep 2021 13:23:32 UTC
+record: -1

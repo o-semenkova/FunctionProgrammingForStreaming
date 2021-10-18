@@ -1,0 +1,115 @@
+type: edu
+files:
+- name: src/FibonacciWithMemoTask.scala
+  visible: true
+  placeholders:
+  - offset: 74
+    length: 120
+    placeholder_text: |-
+      def fib(n: Int): Long = {
+            if (n == 0) 0
+            else if (n == 1) 1
+            else fib(n - 1) + fib(n - 2)
+          }
+
+          fib
+    initial_state:
+      length: 120
+      offset: 74
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      n => {
+            if (n < 2) n
+            else {
+              implicit val store: Array[Long] = new Array[Long](n + 1)
+              val fixed: (Int => Long) => Int => Long = (fib: Int => Long) => memoize {
+                case n@0 => n
+                case n@1 => n
+                case n => fib(n - 1) + fib(n - 2)
+              }
+              val fib: Int => Long = fix[Int, Long](fixed)
+
+              fib(n)
+            }
+          }
+        }
+
+        def fix[T, R](bifnFactory: (T => R) => T => R): T => R = t => bifnFactory(fix(bifnFactory))(t)
+
+        def memoize(fn: Int => Long)(implicit store: Array[Long]): Int => Long = {
+          in => {
+            val cached = store(in)
+            if (cached > 0) {
+              cached
+            } else {
+              val calculated = fn(in)
+              store.update(in, calculated)
+              calculated
+            }
+          }
+  text: |-
+    object FibonacciWithMemoTask {
+      def memoFibonacci(): Int => Long = {
+        def fib(n: Int): Long = {
+          if (n == 0) 0
+          else if (n == 1) 1
+          else fib(n - 1) + fib(n - 2)
+        }
+
+        fib
+      }
+    }
+  learner_created: false
+- name: build.sbt
+  visible: false
+  text: |
+    scalaSource in Compile := baseDirectory.value / "src"
+    scalaSource in Test := baseDirectory.value / "test"
+    libraryDependencies += "org.scalatest" %% "scalatest" % "3.2.3"
+  learner_created: false
+- name: test/FibonacciMemoTestSpec.scala
+  visible: false
+  text: |
+    import FibonacciWithMemoTask.memoFibonacci
+    import org.scalatest.funsuite.AnyFunSuite
+
+    import scala.util.Random
+
+    class FibonacciMemoTestSpec extends AnyFunSuite {
+
+      test("Check Impl Correctness for depth 0") {
+        assert(memoFibonacci()(0) == 0, "fib(0) should be equal to 0")
+      }
+
+      test("Check Impl Correctness for depth 1") {
+        assert(memoFibonacci()(1) == 1, "fib(1) should be equal to 1")
+      }
+
+      test("Check Impl Correctness for depth 2") {
+        assert(memoFibonacci()(2) == 1, "fib(2) should be equal to 1")
+      }
+
+      test("Check Impl Correctness for depth 5") {
+        assert(memoFibonacci()(5) == 5, "fib(5) should be equal to 5")
+      }
+
+      test("Check Impl Correctness for Random Value") {
+        for(_ <- 0 until 10000) {
+          val random = new Random()
+          val depth = (random nextInt 1000) + 1
+
+          assertFibImpl(memoFibonacci(), depth)
+        }
+      }
+
+      def assertFibImpl(fibImpl: Int => Long, depth: Int) {
+        assert(
+          fibImpl(depth - 1) + fibImpl(depth) == fibImpl(depth + 1),
+          s"""fib($depth-1) plus fib($depth) should be equal to fub($depth + 1)""")
+      }
+    }
+  learner_created: false
+status: Unchecked
+record: -1

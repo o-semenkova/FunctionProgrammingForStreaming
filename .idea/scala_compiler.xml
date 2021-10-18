@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ScalaCompilerConfiguration">
+    <profile name="sbt 1" modules="FunctionProgrammingForStreaming,bi-y-combinator,check-prime-number,factorial-recursion,fibonacci-memoization,fibonacci-recursion,fibonacci-tail-recursion,fizzbuzz,flatting-strings,group-words,image-filtrering,map-sequence,purity-check,take-words,vector-math,wiki-integration,zip-a-word" />
+  </component>
+</project>

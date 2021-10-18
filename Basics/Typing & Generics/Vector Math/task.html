@@ -1,0 +1,28 @@
+<html>
+Implement Type-Safe version of <code>sum</code> and <code>sub</code> functions which can work with
+all type of <code>Vector</code>s but ensures at <b>compile-time</b> that only <code>Vector</code>s
+of the same Type (hence same <code>length</code>) can be summed.
+
+<br>
+<br>
+For example:
+
+<ul>
+  <li>
+    The following should compile successfully
+    <pre>
+      <code>
+val result: Vector3 = sum(Vector3(1, 2, 3), Vector3(3, 2, 1))
+      </code>
+    </pre>
+  </li>
+  <li>
+    The following should fail at the compile time
+    <pre>
+      <code>
+val result: ??? = sum(Vector2(1, 2, 3), Vector3(3, 2, 1)) // no way to guess result Vector type
+      </code>
+    </pre>
+  </li>
+</ul>
+</html>

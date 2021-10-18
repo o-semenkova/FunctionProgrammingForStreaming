@@ -1,0 +1,51 @@
+type: edu
+files:
+- name: src/GroupWordsTask.scala
+  visible: true
+  placeholders:
+  - offset: 79
+    length: 3
+    placeholder_text: ???
+    initial_state:
+      length: 3
+      offset: 79
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      wordsSeq
+          .groupBy(_.charAt(0))
+          .map {
+            case (firstLetter, words) => firstLetter -> words
+              .map(word => word.foldLeft(0)((cnt, c) => c match {
+                case `firstLetter` => cnt + 1
+                case _ => cnt
+              }))
+              .sum
+          }
+  text: |-
+    object GroupWordsTask {
+      def groupIt(wordsSeq: Seq[String]): Map[Char, Int] = ???
+    }
+  learner_created: false
+- name: build.sbt
+  visible: false
+  text: |
+    scalaSource in Compile := baseDirectory.value / "src"
+    scalaSource in Test := baseDirectory.value / "test"
+    libraryDependencies += "org.scalatest" %% "scalatest" % "3.2.3"
+  learner_created: false
+- name: test/GroupItTestSpec.scala
+  visible: false
+  text: |
+    import GroupWordsTask.groupIt
+    import org.scalatest.funsuite.AnyFunSuite
+
+    class GroupItTestSpec extends AnyFunSuite {
+      test("Check") {
+        assert(groupIt(Seq("ABCA", "BCD", "ABC", "DASD", "KASD", "MWF", "ARPCAAA")) == Map('A' -> 7, 'B' -> 1, 'D' -> 2, 'K' -> 1, 'M' -> 1), "Expected matching")
+      }
+    }
+  learner_created: false
+status: Unchecked
+record: -1

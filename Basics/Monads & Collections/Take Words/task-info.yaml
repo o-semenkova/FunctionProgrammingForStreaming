@@ -1,0 +1,81 @@
+type: edu
+files:
+- name: src/TakeWordsTask.scala
+  visible: true
+  placeholders:
+  - offset: 141
+    length: 644
+    placeholder_text: ???
+    initial_state:
+      length: 3
+      offset: 139
+    initialized_from_dependency: false
+    selected: true
+    status: Solved
+    encrypted_possible_answer: |-
+      seq
+          .flatMap(decoupleLineSeparator(Nil, _))
+          .takeWhile(w => !w.contains(lineSeparatorString))
+
+
+        @tailrec def decoupleLineSeparator(list: List[String], word: String): List[String] = word match {
+          case "\n" => list :+ lineSeparatorString
+          case x if x.contains(lineSeparatorString) =>
+            val tuple = x.splitAt(x.indexOf(lineSeparatorString))
+            decoupleLineSeparator(list :+ tuple._1 :+ lineSeparatorString, tuple._2.slice(1, tuple._2.length))
+          case x => list :+ x
+        }
+  text: |
+    import scala.annotation.tailrec
+
+    object TakeWordsTask {
+      val lineSeparatorString = "\n"
+
+      def takeWords(seq: Seq[String]): Seq[String] = ???
+    }
+  learner_created: false
+- name: build.sbt
+  visible: false
+  text: |
+    scalaSource in Compile := baseDirectory.value / "src"
+    scalaSource in Test := baseDirectory.value / "test"
+    libraryDependencies += "org.scalatest" %% "scalatest" % "3.2.3"
+  learner_created: false
+- name: test/TestSpecTake.scala
+  visible: false
+  text: |
+    import TakeWordsTask.takeWords
+    import org.scalatest.funsuite.AnyFunSuite
+
+    class TestSpecTake extends AnyFunSuite {
+
+      test("List(\"Hello\", \"world!\", \"\\n\", \"Test\", \"asda\") should be transformed into List(\"Hello\", \"world!\")") {
+        assert(takeWords(List("Hello", "world!", "\n", "Test", "asda")) == List("Hello", "world!"), "Expected results matching")
+      }
+
+      test("List(\"Hello\", \"world!\n\", \"Test\", \"asda\") should be transformed into List(\"Hello\", \"world!\")") {
+        assert(takeWords(List("Hello", "world!\n", "Test", "asda")) == List("Hello", "world!"), "Expected results matching")
+      }
+
+      test("List(\"Hello\", \"world!\nTest\", \"asda\") should be transformed into List(\"Hello\", \"world!\")") {
+        assert(takeWords(List("Hello", "world!\nTest", "asda")) == List("Hello", "world!"), "Expected results matching")
+      }
+
+      test("List(\"Hello\", \"world!\nTest\nTest\", \"asda\") should be transformed into List(\"Hello\", \"world!\")") {
+        assert(takeWords(List("Hello", "world!\nTest", "asda")) == List("Hello", "world!"), "Expected results matching")
+      }
+
+      test("List() should be transformed into List()") {
+        assert(takeWords(List()) == List(), "Expected results matching")
+      }
+
+      test("List('\n') should be transformed into List()") {
+        assert(takeWords(List("\n")) == List(), "Expected results matching")
+      }
+    }
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Sun, 17 Oct 2021 09:03:15 UTC
+record: -1

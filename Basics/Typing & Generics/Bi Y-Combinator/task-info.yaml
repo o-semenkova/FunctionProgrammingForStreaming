@@ -1,0 +1,69 @@
+type: edu
+files:
+- name: src/BiYCombinator.scala
+  visible: true
+  placeholders:
+  - offset: 32
+    length: 14
+    placeholder_text: /* GENERICS */
+    initial_state:
+      length: 14
+      offset: 32
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: '[T1, T2, R]'
+  - offset: 60
+    length: 3
+    placeholder_text: Any
+    initial_state:
+      length: 3
+      offset: 60
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: ((T1, T2) => R) => (T1, T2) => R
+  - offset: 66
+    length: 3
+    placeholder_text: Any
+    initial_state:
+      length: 3
+      offset: 66
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: (T1, T2) => R
+  - offset: 74
+    length: 3
+    placeholder_text: ???
+    initial_state:
+      length: 3
+      offset: 74
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: (t1, t2) => bifnFactory(fix(bifnFactory))(t1, t2)
+  text: "object BiYCombinator {\n\n\tdef fix/* GENERICS */(bifnFactory: Any): Any\
+    \ =\n\t\t???\n}"
+  learner_created: false
+- name: test/TestSpecYCombinator.scala
+  visible: false
+  text: "import BiYCombinator.fix\nimport org.scalatest.funsuite.AnyFunSuite\n\nclass\
+    \ TestSpecYCombinator extends AnyFunSuite {\n\n\ttest(\"Factorial Test\") {\n\t\
+    \tval factorial = fix[Long, Int, Long](\n          factorial => (state, n) =>\n\
+    \            if (n == 0) state\n            else factorial(state * n, n - 1)\n\
+    \        ).curried(1)\n\n\t\tval expectedResult1 = 2 * 3 * 4 * 5\n\t\tassert(factorial(5)\
+    \ == expectedResult1,\n\t\t       s\"Expected Factorial(5) is \" + s\"$expectedResult1\"\
+    )\n\n\t\tval expectedResult2 = 2 * 3 * 4 * 5 * 6 * 7\n\t\tassert(factorial(7)\
+    \ == expectedResult2,\n\t\t       s\"Expected Factorial(7) is $expectedResult2\"\
+    )\n\t}\n}\n"
+  learner_created: false
+- name: build.sbt
+  visible: false
+  text: |
+    scalaSource in Compile := baseDirectory.value / "src"
+    scalaSource in Test := baseDirectory.value / "test"
+    libraryDependencies += "org.scalatest" %% "scalatest" % "3.2.3"
+  learner_created: false
+status: Unchecked
+record: -1

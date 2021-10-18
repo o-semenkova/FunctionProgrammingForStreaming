@@ -1,0 +1,65 @@
+type: edu
+files:
+- name: src/MapTask.scala
+  visible: true
+  placeholders:
+  - offset: 135
+    length: 8
+    placeholder_text: ???
+    initial_state:
+      length: 3
+      offset: 67
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: |-
+      input.filter(x => x forall Character.isDigit)
+            .map(_.toInt)
+  text: |-
+    object MapTask {
+      def mapping(input: Seq[String]): Seq[Int] =
+        ???
+    }
+  learner_created: false
+- name: build.sbt
+  visible: false
+  text: |
+    scalaSource in Compile := baseDirectory.value / "src"
+    scalaSource in Test := baseDirectory.value / "test"
+    libraryDependencies += "org.scalatest" %% "scalatest" % "3.2.3"
+  learner_created: false
+- name: test/TestSpecMap.scala
+  visible: false
+  text: |
+    import MapTask.mapping
+    import org.scalatest.funsuite.AnyFunSuite
+
+    import scala.collection.immutable.Stream
+
+    class TestSpecMap extends AnyFunSuite {
+      test("Check given function List('1', '2', '3') is mapped correctly") {
+        val indexedSeq = for (i <- 0 to 20) yield i
+        assert(mapping(indexedSeq.map(_.toString)) == indexedSeq, s"expected to get $indexedSeq")
+      }
+
+      test("Check given function List('1', '2', '3', '4,', ',5', '04', '50') is mapped correctly") {
+        val seq = List("1", "2", "3", "4,", ",5", "04", "50")
+        assert(mapping(seq) == List(1, 2, 3, 4, 50), "expected to get List(1, 2, 3, 4, 50)")
+      }
+
+      test("Check given function List() is mapped correctly") {
+        val seq = List()
+        assert(mapping(seq) == List(), "expected to get List()")
+      }
+
+      test("Check given function Stream('1', '2', null).take(2) is mapped correctly") {
+        val seq: Stream[String] = "1" #:: ("2" #:: (null #:: Stream()))
+        assert(mapping(seq).take(2) == List(1, 2), "expected to get List(1, 2)")
+      }
+    }
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Sat, 16 Oct 2021 18:52:32 UTC
+record: -1

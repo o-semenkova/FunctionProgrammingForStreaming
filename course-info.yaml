@@ -1,0 +1,11 @@
+title: Functional Programming for Streaming
+language: English
+summary: |-
+  Scala (sbt) course.
+  Created: Sep 17, 2020, 10:53:28 PM.
+programming_language: Scala
+environment: sbt
+content:
+- Basics
+- Advanced
+mode: Study

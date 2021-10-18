@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/FunctionProgrammingForStreaming.iml" filepath="$PROJECT_DIR$/.idea/modules/FunctionProgrammingForStreaming.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/FunctionProgrammingForStreaming-build.iml" filepath="$PROJECT_DIR$/.idea/modules/FunctionProgrammingForStreaming-build.iml" group="sbt-build-modules" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/bi-y-combinator.iml" filepath="$PROJECT_DIR$/.idea/modules/bi-y-combinator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/bi-y-combinator-build.iml" filepath="$PROJECT_DIR$/.idea/modules/bi-y-combinator-build.iml" group="sbt-build-modules" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/check-prime-number.iml" filepath="$PROJECT_DIR$/.idea/modules/check-prime-number.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/check-prime-number-build.iml" filepath="$PROJECT_DIR$/.idea/modules/check-prime-number-build.iml" group="sbt-build-modules" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/factorial-recursion.iml" filepath="$PROJECT_DIR$/.idea/modules/factorial-recursion.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/factorial-recursion-build.iml" filepath="$PROJECT_DIR$/.idea/modules/factorial-recursion-build.iml" group="sbt-build-modules" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/fibonacci-memoization.iml" filepath="$PROJECT_DIR$/.idea/modules/fibonacci-memoization.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/fibonacci-memoization-build.iml" filepath="$PROJECT_DIR$/.idea/modules/fibonacci-memoization-build.iml" group="sbt-build-modules" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/fibonacci-recursion.iml" filepath="$PROJECT_DIR$/.idea/modules/fibonacci-recursion.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/fibonacci-recursion-build.iml" filepath="$PROJECT_DIR$/.idea/modules/fibonacci-recursion-build.iml" group="sbt-build-modules" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/fibonacci-tail-recursion.iml" filepath="$PROJECT_DIR$/.idea/modules/fibonacci-tail-recursion.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/fibonacci-tail-recursion-build.iml" filepath="$PROJECT_DIR$/.idea/modules/fibonacci-tail-recursion-build.iml" group="sbt-build-modules" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/fizzbuzz.iml" filepath="$PROJECT_DIR$/.idea/modules/fizzbuzz.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/fizzbuzz-build.iml" filepath="$PROJECT_DIR$/.idea/modules/fizzbuzz-build.iml" group="sbt-build-modules" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/flatting-strings.iml" filepath="$PROJECT_DIR$/.idea/modules/flatting-strings.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/flatting-strings-build.iml" filepath="$PROJECT_DIR$/.idea/modules/flatting-strings-build.iml" group="sbt-build-modules" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/group-words.iml" filepath="$PROJECT_DIR$/.idea/modules/group-words.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/group-words-build.iml" filepath="$PROJECT_DIR$/.idea/modules/group-words-build.iml" group="sbt-build-modules" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/image-filtrering.iml" filepath="$PROJECT_DIR$/.idea/modules/image-filtrering.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/image-filtrering-build.iml" filepath="$PROJECT_DIR$/.idea/modules/image-filtrering-build.iml" group="sbt-build-modules" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/map-sequence.iml" filepath="$PROJECT_DIR$/.idea/modules/map-sequence.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/map-sequence-build.iml" filepath="$PROJECT_DIR$/.idea/modules/map-sequence-build.iml" group="sbt-build-modules" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/purity-check.iml" filepath="$PROJECT_DIR$/.idea/modules/purity-check.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/purity-check-build.iml" filepath="$PROJECT_DIR$/.idea/modules/purity-check-build.iml" group="sbt-build-modules" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/take-words.iml" filepath="$PROJECT_DIR$/.idea/modules/take-words.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/take-words-build.iml" filepath="$PROJECT_DIR$/.idea/modules/take-words-build.iml" group="sbt-build-modules" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/vector-math.iml" filepath="$PROJECT_DIR$/.idea/modules/vector-math.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/vector-math-build.iml" filepath="$PROJECT_DIR$/.idea/modules/vector-math-build.iml" group="sbt-build-modules" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/wiki-integration.iml" filepath="$PROJECT_DIR$/.idea/modules/wiki-integration.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/wiki-integration-build.iml" filepath="$PROJECT_DIR$/.idea/modules/wiki-integration-build.iml" group="sbt-build-modules" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/zip-a-word.iml" filepath="$PROJECT_DIR$/.idea/modules/zip-a-word.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/zip-a-word-build.iml" filepath="$PROJECT_DIR$/.idea/modules/zip-a-word-build.iml" group="sbt-build-modules" />
+    </modules>
+  </component>
+</project>

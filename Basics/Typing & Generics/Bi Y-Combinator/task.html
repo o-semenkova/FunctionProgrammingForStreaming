@@ -1,0 +1,19 @@
+<html>
+Implement a Y-Combinator function that allows recursion of function of two arguments
+and a single return type.
+
+<br>
+<br>
+<b>Example Usage:</b>
+<ul>
+    <li>Factorial recursion with fix function:
+        <pre><code>
+val factorial = fix[Long, Int, Long](
+    fn => (state, n) =>
+             if (n == 0) state
+             else fn(state * n, n - 1)
+)
+        </code></pre>
+    </li>
+</ul>
+</html>

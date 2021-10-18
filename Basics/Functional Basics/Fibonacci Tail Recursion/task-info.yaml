@@ -1,0 +1,93 @@
+type: edu
+files:
+- name: src/TailFibonacciTask.scala
+  visible: true
+  placeholders:
+  - offset: 62
+    length: 327
+    placeholder_text: |-
+      def fibonacciImpl2(): Int => Int = {
+              def fun: Int => Int = depth => {
+                  if (depth < 2) depth
+                  else fun(depth - 1) + fun(depth - 2)
+              }
+
+              fun
+          }
+    initial_state:
+      length: 188
+      offset: 29
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: |-
+      @scala.annotation.tailrec def fibTailRecursionHelper(previousState: Int, state: Int, depth: Int): Int =
+          if (depth == -1) previousState
+          else fibTailRecursionHelper(state, previousState + state, depth - 1)
+
+        def fibonacciImpl2(): Int => Int = (depth: Int) => fibTailRecursionHelper(0, 1, depth - 1)
+  text: |-
+    object TailFibonacciTask {
+      def fibonacciImpl2(): Int => Int = {
+            def fun: Int => Int = depth => {
+                if (depth < 2) depth
+                else fun(depth - 1) + fun(depth - 2)
+            }
+
+            fun
+        }
+    }
+  learner_created: false
+- name: build.sbt
+  visible: false
+  text: |
+    scalaSource in Compile := baseDirectory.value / "src"
+    scalaSource in Test := baseDirectory.value / "test"
+    libraryDependencies += "org.scalatest" %% "scalatest" % "3.2.3"
+  learner_created: false
+- name: test/TailFibonacciTaskTestSpec.scala
+  visible: false
+  text: |
+    import org.scalatest.funsuite.AnyFunSuite
+
+    import scala.util.Random
+
+    class TailFibonacciTaskTestSpec extends AnyFunSuite {
+
+      test("Check Impl Correctness for depth 0") {
+        assert(TailFibonacciTask.fibonacciImpl2()(0) == 0, "fib(0) should be equal to 0")
+      }
+
+      test("Check Impl Correctness for depth 1") {
+        assert(TailFibonacciTask.fibonacciImpl2()(1) == 1, "fib(1) should be equal to 1")
+      }
+
+      test("Check Impl Correctness for depth 2") {
+        assert(TailFibonacciTask.fibonacciImpl2()(2) == 1, "fib(2) should be equal to 1")
+      }
+
+      test("Check Impl Correctness for depth 5") {
+        assert(TailFibonacciTask.fibonacciImpl2()(5) == 5, "fib(5) should be equal to 5")
+      }
+
+      test("Check Impl Correctness for Random Value") {
+        for(_ <- 0 until 10000) {
+          val random = new Random()
+          val depth = (random nextInt 100000) + 1
+
+          assertFibImpl(TailFibonacciTask.fibonacciImpl2(), depth)
+        }
+      }
+
+      def assertFibImpl(fibImpl: Int => Int, depth: Int) {
+        assert(
+          fibImpl(depth - 1) + fibImpl(depth) == fibImpl(depth + 1),
+          s"""fib($depth-1) plus fib($depth) should be equal to fub($depth + 1)""")
+      }
+    }
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Thu, 30 Sep 2021 14:27:23 UTC
+record: -1

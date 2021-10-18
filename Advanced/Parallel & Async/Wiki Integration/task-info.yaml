@@ -1,0 +1,91 @@
+type: edu
+files:
+- name: src/WikiIntegrationTask.scala
+  visible: true
+  placeholders:
+  - offset: 584
+    length: 3
+    placeholder_text: ???
+    initial_state:
+      length: 3
+      offset: 584
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      {
+          implicit val system: ActorSystem[Nothing] = ActorSystem(Behaviors.empty, "SingleRequest")
+          implicit val executionContext: ExecutionContextExecutor = system.executionContext
+          val uri = Uri("https://www.mediawiki.org/w/api.php") withQuery ("action", "feedrecentchanges") +: ("feedformat", "rss") +: Query.Empty
+
+          Http()
+            .singleRequest(HttpRequest(
+              method = HttpMethods.GET,
+              uri = uri,
+              headers = Accept(MediaTypes.`application/xml`) :: Nil
+            ))
+            .map(_.entity)
+            .flatMap(Unmarshal(_).to[NodeSeq])
+            .map(a => (a \ "channel" \ "item").map(node => WikiChange((node \ "title").text, Uri((node \ "link").text), Uri((node \ "guid").text), (node \ "description").text, LocalDateTime.from(DateTimeFormatter.RFC_1123_DATE_TIME.parse((node \ "pubDate").text)))))
+        }
+  text: |-
+    import akka.actor.typed.ActorSystem
+    import akka.actor.typed.scaladsl.Behaviors
+    import akka.http.scaladsl.Http
+    import akka.http.scaladsl.marshallers.xml.ScalaXmlSupport._
+    import akka.http.scaladsl.model.Uri.Query
+    import akka.http.scaladsl.model._
+    import akka.http.scaladsl.model.headers._
+    import akka.http.scaladsl.unmarshalling.Unmarshal
+
+    import java.time.LocalDateTime
+    import java.time.format.DateTimeFormatter
+    import scala.concurrent.{ExecutionContextExecutor, Future}
+    import scala.xml.NodeSeq
+
+    object WikiIntegrationTask {
+
+      def retrieveLatestChanges(): Future[Seq[WikiChange]] = ???
+
+      case class WikiChange(title: String, link: Uri, guid: Uri, description: String, pubDate: LocalDateTime)
+
+    }
+  learner_created: false
+- name: build.sbt
+  visible: false
+  text: |
+    scalaSource in Compile := baseDirectory.value / "src"
+    scalaSource in Test := baseDirectory.value / "test"
+    libraryDependencies += "org.scalatest" %% "scalatest" % "3.2.3"
+    libraryDependencies += "com.typesafe.akka" %% "akka-actor-typed" % "2.6.10"
+    libraryDependencies += "com.typesafe.akka" %% "akka-stream" % "2.6.10"
+    libraryDependencies += "com.typesafe.akka" %% "akka-http" % "10.2.1"
+    libraryDependencies += "com.typesafe.akka" %% "akka-http-xml" % "10.2.1"
+  learner_created: false
+- name: test/WikiIntegrationTestSpec.scala
+  visible: false
+  text: |
+    import WikiIntegrationTask.retrieveLatestChanges
+    import org.scalatest.funsuite.AnyFunSuite
+
+    import java.time.LocalDateTime
+    import scala.concurrent.Await
+    import scala.concurrent.duration.DurationInt
+
+    class WikiIntegrationTestSpec extends AnyFunSuite {
+      test("First test") {
+        val wikiChanges = Await.result(retrieveLatestChanges(), 10 seconds)
+
+        assert(wikiChanges.nonEmpty, "List of WikiChanges should have values")
+        wikiChanges.foreach(wc => {
+          assert(!wc.title.isBlank, "WikiChange[title] should be enriched with data")
+          assert(!wc.link.isEmpty, "WikiChange[link] should be enriched with data")
+          assert(!wc.guid.isEmpty, "WikiChange[guid] should be enriched with data")
+          assert(!wc.description.isBlank, "WikiChange[description] should be enriched with data")
+          assert(wc.pubDate.isBefore(LocalDateTime.now()), "WikiChange[pubDate] should be enriched with data")
+        })
+      }
+    }
+  learner_created: false
+status: Unchecked
+record: -1

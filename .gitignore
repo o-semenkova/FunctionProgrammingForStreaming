@@ -1,0 +1,53 @@
+# Project exclude paths
+/Advanced/Parallel & Async/Image Filtrering/project/target/
+/Advanced/Parallel & Async/Image Filtrering/target/
+/Advanced/Parallel & Async/Wiki Integration/project/target/
+/Advanced/Parallel & Async/Wiki Integration/target/
+/Basics/Functional Basics/Check Prime Number/project/target/
+/Basics/Functional Basics/Check Prime Number/target/
+/Basics/Functional Basics/Check Prime Number/target/scala-2.12/classes/
+/Basics/Functional Basics/Check Prime Number/target/scala-2.12/test-classes/
+/Basics/Functional Basics/Factorial Recursion/project/target/
+/Basics/Functional Basics/Factorial Recursion/target/
+/Basics/Functional Basics/Factorial Recursion/target/scala-2.12/classes/
+/Basics/Functional Basics/Factorial Recursion/target/scala-2.12/test-classes/
+/Basics/Functional Basics/Fibonacci Recursion/project/target/
+/Basics/Functional Basics/Fibonacci Recursion/target/
+/Basics/Functional Basics/Fibonacci Recursion/target/scala-2.12/classes/
+/Basics/Functional Basics/Fibonacci Recursion/target/scala-2.12/test-classes/
+/Basics/Functional Basics/Fibonacci Tail Recursion/project/target/
+/Basics/Functional Basics/Fibonacci Tail Recursion/target/
+/Basics/Functional Basics/Fibonacci Tail Recursion/target/scala-2.12/classes/
+/Basics/Functional Basics/Fibonacci Tail Recursion/target/scala-2.12/test-classes/
+/Basics/Functional Basics/Purity Check/project/target/
+/Basics/Functional Basics/Purity Check/target/
+/Basics/Functional Basics/Purity Check/target/scala-2.12/classes/
+/Basics/Functional Basics/Purity Check/target/scala-2.12/test-classes/
+/Basics/Monads & Collections/Fibonacci Memoization/project/target/
+/Basics/Monads & Collections/Fibonacci Memoization/target/
+/Basics/Monads & Collections/FizzBuzz/project/target/
+/Basics/Monads & Collections/FizzBuzz/target/
+/Basics/Monads & Collections/FizzBuzz/target/scala-2.12/classes/
+/Basics/Monads & Collections/FizzBuzz/target/scala-2.12/test-classes/
+/Basics/Monads & Collections/Flatting Strings/project/target/
+/Basics/Monads & Collections/Flatting Strings/target/
+/Basics/Monads & Collections/Flatting Strings/target/scala-2.12/classes/
+/Basics/Monads & Collections/Flatting Strings/target/scala-2.12/test-classes/
+/Basics/Monads & Collections/Group Words/project/target/
+/Basics/Monads & Collections/Group Words/target/
+/Basics/Monads & Collections/Map Sequence/project/target/
+/Basics/Monads & Collections/Map Sequence/target/
+/Basics/Monads & Collections/Map Sequence/target/scala-2.12/classes/
+/Basics/Monads & Collections/Map Sequence/target/scala-2.12/test-classes/
+/Basics/Monads & Collections/Take Words/project/target/
+/Basics/Monads & Collections/Take Words/target/
+/Basics/Monads & Collections/Take Words/target/scala-2.12/classes/
+/Basics/Monads & Collections/Take Words/target/scala-2.12/test-classes/
+/Basics/Monads & Collections/Zip A Word/project/target/
+/Basics/Monads & Collections/Zip A Word/target/
+/Basics/Typing & Generics/Bi Y-Combinator/project/target/
+/Basics/Typing & Generics/Bi Y-Combinator/target/
+/Basics/Typing & Generics/Vector Math/project/target/
+/Basics/Typing & Generics/Vector Math/target/
+/project/target/
+/target/

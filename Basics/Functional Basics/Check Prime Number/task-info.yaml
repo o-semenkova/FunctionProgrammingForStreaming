@@ -1,0 +1,79 @@
+type: edu
+files:
+- name: src/PrimeCheckerTask.scala
+  visible: true
+  placeholders:
+  - offset: 113
+    length: 173
+    placeholder_text: ???
+    initial_state:
+      length: 3
+      offset: 64
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: "if (n <= 3) {\n\t\t\tn > 1\n\t\t} else if (n % 2 ==\
+      \ 0 || n % 3 == 0) {\n\t\t\tfalse\n\t\t} else {\n\t\t\t@scala.annotation.tailrec\
+      \ def loop(i: Long): Boolean = i * i > n ||\n\t\t\t\t(!(n % i == 0 || n % (i\
+      \ + 2) == 0) && loop(i + 6))\n\n\t\t\tloop(5)\n\t\t}"
+  text: "object PrimeCheckerTask {\n\n\tdef isPrime(n: Long): Boolean = {\n\t\t???\n\
+    \t}\n}"
+  learner_created: false
+- name: test/TestSpecPrime.scala
+  visible: false
+  text: |
+    import PrimeCheckerTask.isPrime
+    import org.scalatest.funsuite.AnyFunSuite
+
+    import scala.math.pow
+
+    class TestSpecPrime extends AnyFunSuite {
+
+      test("ensures 3 is prime") {
+        assert(isPrime(3), "Expected 3 to be prime")
+      }
+
+      test("ensures 7 is prime") {
+        assert(isPrime(7), "Expected 3 to be prime")
+      }
+
+      test("ensures 11 is prime") {
+        assert(isPrime(11), "Expected 11 to be prime")
+      }
+
+      test("ensures 773 is prime") {
+        assert(isPrime(773), "Expected 11 to be prime")
+      }
+
+      test("ensures 507961 is prime") {
+        assert(isPrime(507961), "expected 507961 to be prime number")
+      }
+
+      test("ensures 15 is not prime") {
+        assert(!isPrime(15), "expected 15 not to be prime number")
+      }
+
+      test("ensures 507962 is prime") {
+        assert(!isPrime(507962), "expected 507962 not to be prime number")
+      }
+
+      test("ensures any pow of 2 is not prime") {
+        for (i <- 2 to 64 by 2) {
+          val value = pow(2, i).longValue()
+          assert(!isPrime(value), s"expected $value not to be prime number")
+        }
+      }
+    }
+  learner_created: false
+- name: build.sbt
+  visible: false
+  text: |
+    scalaSource in Compile := baseDirectory.value / "src"
+    scalaSource in Test := baseDirectory.value / "test"
+    libraryDependencies += "org.scalatest" %% "scalatest" % "3.2.3"
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Thu, 30 Sep 2021 06:52:04 UTC
+record: -1

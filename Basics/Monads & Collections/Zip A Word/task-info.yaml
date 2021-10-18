@@ -1,0 +1,47 @@
+type: edu
+files:
+- name: src/ZipWordTask.scala
+  visible: true
+  placeholders:
+  - offset: 118
+    length: 3
+    placeholder_text: ???
+    initial_state:
+      length: 3
+      offset: 118
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      {
+          prefixSeq.zip(wordSeq).zip(suffixSeq)
+            .map {
+              case ((prefix, word), suffix) => prefix + word + suffix
+            }
+        }
+  text: |-
+    object ZipWordTask {
+      def zipIt(prefixSeq: Seq[String], wordSeq: Seq[String], suffixSeq: Seq[String]): Seq[String] = ???
+    }
+  learner_created: false
+- name: build.sbt
+  visible: false
+  text: |
+    scalaSource in Compile := baseDirectory.value / "src"
+    scalaSource in Test := baseDirectory.value / "test"
+    libraryDependencies += "org.scalatest" %% "scalatest" % "3.2.3"
+  learner_created: false
+- name: test/ZipWordTestSpec.scala
+  visible: false
+  text: |
+    import ZipWordTask.zipIt
+    import org.scalatest.funsuite.AnyFunSuite
+
+    class ZipWordTestSpec extends AnyFunSuite {
+      test("Check List(\"over\", \"extra\") List(\"size\", \"large\") List(\"d\", \"\") transformed to List(\"oversized\", \"extralarge\")") {
+        assert(zipIt(List("over", "extra"), List("size", "large"), List("d", "")) == List("oversized", "extralarge"), "Expect matching")
+      }
+    }
+  learner_created: false
+status: Unchecked
+record: -1
