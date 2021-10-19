@@ -9,8 +9,6 @@ j
 :Basics/Functional Basics/Purity Check/src/PurityTask.scala,7/c/7c7b0cc2c27075b4ea0f743f600db8f8a2fba568
 p
 @Basics/Typing & Generics/Bi Y-Combinator/src/BiYCombinator.scala,a/8/a8bb585275148460edfafaa1a38d6652e03e2b6f
-i
-9Basics/Typing & Generics/Vector Math/src/VectorTask.scala,3/1/3176261bd302f8c97da39382d15eb3796a13dabc
 Å
 QBasics/Monads & Collections/Fibonacci Memoization/src/FibonacciWithMemoTask.scala,1/e/1e8a326167e7c0601a42308392fb8d17c6cf7cde
 v
