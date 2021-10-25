@@ -4,5 +4,6 @@ object GroupWordsTask {
   }
   def countOccurences(words: Seq[String], ch: Char): Int = {
     words.map(c => c.count(x => {x == ch})).sum
+
   }
 }

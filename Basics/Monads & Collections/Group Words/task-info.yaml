@@ -4,14 +4,14 @@ files:
   visible: true
   placeholders:
   - offset: 79
-    length: 207
+    length: 208
     placeholder_text: ???
     initial_state:
       length: 3
       offset: 79
     initialized_from_dependency: false
     selected: true
-    status: Solved
+    status: Unchecked
     encrypted_possible_answer: |-
       wordsSeq
           .groupBy(_.charAt(0))

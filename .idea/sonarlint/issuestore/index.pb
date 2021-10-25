@@ -7,10 +7,6 @@ o
 ?Basics/Functional Basics/Purity Check/test/TestSpecPurity.scala,4/4/4456c9e51c9f914748df04a2143455bb629b580a
 j
 :Basics/Functional Basics/Purity Check/src/PurityTask.scala,7/c/7c7b0cc2c27075b4ea0f743f600db8f8a2fba568
-p
-@Basics/Typing & Generics/Bi Y-Combinator/src/BiYCombinator.scala,a/8/a8bb585275148460edfafaa1a38d6652e03e2b6f
-
-QBasics/Monads & Collections/Fibonacci Memoization/src/FibonacciWithMemoTask.scala,1/e/1e8a326167e7c0601a42308392fb8d17c6cf7cde
 v
 FBasics/Functional Basics/Check Prime Number/src/PrimeCheckerTask.scala,7/e/7e4f724aad772ff945e0071e3fd8f18387b2104d
 }
@@ -23,3 +19,13 @@ j
 :Basics/Monads & Collections/Map Sequence/src/MapTask.scala,1/e/1e37f90548f835131f79f68c0148838ef920f87b
 s
 CBasics/Monads & Collections/Flatting Strings/src/FlattingTask.scala,0/8/0855637398c0259913b698f927c06bf05b1eac44
+r
+BBasics/Monads & Collections/Group Words/test/GroupItTestSpec.scala,9/4/9447e4e42e8db06ea79f9d423cf8b3dca0e09aed
+k
+;Basics/Monads & Collections/FizzBuzz/src/FizzBuzzTask.scala,b/8/b847dbf9dc6c9d7380de3977ebd4f2143af22841
+n
+>Basics/Monads & Collections/Take Words/src/TakeWordsTask.scala,3/e/3e43916a56f605c7ed4e2303a0f23331a217c302
+n
+>Basics/Typing & Generics/Vector Math/test/TestSpecVector.scala,5/c/5c6ac7d77d170cf18527e011e18fb2316c615785
+i
+9Basics/Typing & Generics/Vector Math/src/VectorTask.scala,3/1/3176261bd302f8c97da39382d15eb3796a13dabc
