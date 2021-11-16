@@ -11,7 +11,7 @@ files:
       offset: 32
     initialized_from_dependency: false
     selected: true
-    status: Solved
+    status: Unchecked
     encrypted_possible_answer: '[T1, T2, R]'
   - offset: 57
     length: 32
@@ -21,7 +21,7 @@ files:
       offset: 60
     initialized_from_dependency: false
     selected: false
-    status: Solved
+    status: Unchecked
     encrypted_possible_answer: ((T1, T2) => R) => (T1, T2) => R
   - offset: 92
     length: 13
@@ -31,7 +31,7 @@ files:
       offset: 66
     initialized_from_dependency: false
     selected: false
-    status: Solved
+    status: Unchecked
     encrypted_possible_answer: (T1, T2) => R
   - offset: 110
     length: 50
@@ -41,7 +41,7 @@ files:
       offset: 74
     initialized_from_dependency: false
     selected: true
-    status: Solved
+    status: Unchecked
     encrypted_possible_answer: (t1, t2) => bifnFactory(fix(bifnFactory))(t1, t2)
   text: "object BiYCombinator {\n\n\tdef fix/* GENERICS */(bifnFactory: Any): Any\
     \ =\n\t\t???\n}"

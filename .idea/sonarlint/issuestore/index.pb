@@ -29,3 +29,19 @@ n
 >Basics/Typing & Generics/Vector Math/test/TestSpecVector.scala,5/c/5c6ac7d77d170cf18527e011e18fb2316c615785
 i
 9Basics/Typing & Generics/Vector Math/src/VectorTask.scala,3/1/3176261bd302f8c97da39382d15eb3796a13dabc
+l
+<Basics/Monads & Collections/Zip A Word/src/ZipWordTask.scala,1/1/11502d69bba479042ce3fe48173f5f196aa6b1db
+e
+5Basics/Monads & Collections/Zip A Word/task-info.yaml,9/b/9b303a913df3beb3eab80e2a1c3899aff84a4608
+c
+3Basics/Typing & Generics/Vector Math/task-info.yaml,a/5/a55488e57359f9a64a0cce89c5b926872074a389
+e
+5Basics/Monads & Collections/Take Words/task-info.yaml,4/2/425853382af2aa817fe2d71c676f5e142bfc51ca
+c
+3Basics/Monads & Collections/FizzBuzz/task-info.yaml,5/6/564746c2d9fb8caddf65b490edfc9701c05074bb
+f
+6Basics/Monads & Collections/Group Words/task-info.yaml,9/5/95c0c0fa6c5bdff44fb1335763ff80500639299e
+p
+@Basics/Monads & Collections/Group Words/src/GroupWordsTask.scala,1/b/1b91837cee6fbc9ffa6b6868d9a606cbc3ab673e
+p
+@Basics/Typing & Generics/Bi Y-Combinator/src/BiYCombinator.scala,a/8/a8bb585275148460edfafaa1a38d6652e03e2b6f

@@ -3,8 +3,8 @@ files:
 - name: src/FibonacciWithMemoTask.scala
   visible: true
   placeholders:
-  - offset: 74
-    length: 120
+  - offset: 70
+    length: 295
     placeholder_text: |-
       def fib(n: Int): Long = {
             if (n == 0) 0
@@ -18,7 +18,7 @@ files:
       offset: 74
     initialized_from_dependency: false
     selected: true
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: |-
       n => {
             if (n < 2) n
@@ -111,5 +111,8 @@ files:
       }
     }
   learner_created: false
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Tue, 16 Nov 2021 14:00:52 UTC
 record: -1

@@ -4,14 +4,14 @@ files:
   visible: true
   placeholders:
   - offset: 205
-    length: 3
+    length: 1246
     placeholder_text: ???
     initial_state:
       length: 3
       offset: 205
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: |-
       {
           FilteringTask(filter(imageData), windowSize, 0, imageData(0).length, 0, imageData.length)()
@@ -168,5 +168,8 @@ files:
 - name: img.png
   visible: false
   learner_created: false
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Tue, 16 Nov 2021 13:27:07 UTC
 record: -1
